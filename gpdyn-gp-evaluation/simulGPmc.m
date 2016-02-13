@@ -45,12 +45,12 @@ function [mu, s2, MU, SIG2] = simulGPmc(hyp, inf, meanfunc, cov, lik, input, tar
 % meanfunc ... 'mean' is used as a matlab core function in this file
 
 
-Ndx = 800;
-DSig = 3;
+%Ndx = 800;
+%DSig = 3;
 num_iters = length(test);
-sum_time  = 0;
+% sum_time  = 0;
 
-[N, D] = size(input);
+%[N, D] = size(input);
 PDF = zeros(Nsamples,lag);
 
 % Preallocate mu and s2
@@ -100,14 +100,14 @@ for k=3:num_iters
     PDF(:,lag) = pdf;
 
     % simulate for all cases, again using the matrix version
-    t0 = tic;
+    %t0 = tic;
     test_ = repmat ( test(k,:), Nsamples, 1 );
     test_(:,1:lag) = PDF;
     [MU(k,:), SIG2(k,:), post] = gpx(hyp, inf, meanfunc, cov, lik, input, target, test_, post);
-    calltime = toc(t0);
+    %calltime = toc(t0);
 %     fprintf ( 'gpr_simul() ....... %f sec\n\n', calltime ); % uncomment
 %     if you wish 
-    sum_time = sum_time + calltime;
+    %sum_time = sum_time + calltime;
     
     % approximate output distribution with gauss - calculate m and v
     mu(k,1) = mean(MU(k,:));
