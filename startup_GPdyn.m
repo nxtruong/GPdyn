@@ -15,8 +15,8 @@ addpath([mydir_gpdyn,'gpdyn-gp-evaluation'])
 addpath([mydir_gpdyn,'gpdyn-lmgp-evaluation'])
 addpath([mydir_gpdyn,'gpdyn-training'])
 addpath([mydir_gpdyn,'gpdyn-utilities'])
-addpath([mydir_gpdyn,'gpml-matlab'])
 
-run([mydir_gpdyn,'gpml-matlab/startup.m'])          % execute gpml startup script
+% addpath([mydir_gpdyn,'gpml-matlab'])
+% run([mydir_gpdyn,'gpml-matlab/startup.m'])          % execute gpml startup script
 
-clear me mydir OCT
+clear me mydir_gpdyn OCT
