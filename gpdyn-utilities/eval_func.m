@@ -18,10 +18,10 @@ function [ varargout ] = eval_func( func, varargin )
 % This function returns whatever is returned by the evaluated function
 %
 % See Also:
-% validate
+% validate_gp
 %
 % Examples:
-% validate
+% validate_gp
 %
 %%
 % * Written by Tomaz Sustar, December 2011

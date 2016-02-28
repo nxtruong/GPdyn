@@ -43,7 +43,7 @@ function [m, S2] = gpExactLINard(hyp, inf, mean, cov, lik, invQ, input, target, 
 [nn, D] = size(test);  % the number of test cases and dimension of input space
 
 % input validation
-[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate( hyp, inf, mean, cov, lik, D);
+[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate_gp( hyp, inf, mean, cov, lik, D);
 
 if ~isequal(cov,{@covLINard}) 
     error(strcat([fun_name,': function can only be called with the', ...

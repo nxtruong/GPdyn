@@ -48,7 +48,7 @@ function [mu, S2, deriv, S2deriv] = gpTaylorSEard(hyp, inf, mean, cov, lik, invQ
 [nn, D] = size(test);       % the number of test cases and dimension of input space
 
 % input validation
-[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate( hyp, inf, mean, cov, lik, D);
+[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate_gp( hyp, inf, mean, cov, lik, D);
 
 if ~isequal(cov,{@covSEard}) 
     error(strcat([fun_name,': function can only be called with the', ...

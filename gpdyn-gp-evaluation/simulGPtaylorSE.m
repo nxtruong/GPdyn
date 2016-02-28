@@ -48,7 +48,7 @@ t=target;
 [n D] = size(x);
 
 % input validation
-[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate( hyp, inf, mean, cov, lik, D);
+[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate_gp( hyp, inf, mean, cov, lik, D);
 
 if ~isequal(cov,{@covSEard}) 
     error(strcat([fun_name,': function can only be called with the', ...

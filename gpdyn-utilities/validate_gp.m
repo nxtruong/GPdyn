@@ -1,4 +1,4 @@
-function [ is_valid, hyp, inf, mean, cov, lik, msg ] = validate( hyp, inf, mean, cov, lik, D, throw_error)
+function [ is_valid, hyp, inf, mean, cov, lik, msg ] = validate_gp( hyp, inf, mean, cov, lik, D, throw_error)
 % Function checks whether the hyperparameters and input functions match.
 %
 %% Syntax

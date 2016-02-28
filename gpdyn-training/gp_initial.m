@@ -60,7 +60,7 @@ end
     [n D] = size(input);
 
 % default values
-  [ is_valid, hyp, inf, mean, cov, lik] = validate( [], inf, mean, cov, lik, D);
+  [ is_valid, hyp, inf, mean, cov, lik] = validate_gp( [], inf, mean, cov, lik, D);
   
 % dimensions
     
@@ -83,8 +83,8 @@ if isempty(bounds)
 elseif length(bounds) == 2
     if isnumeric(bounds)
         bounds = repmat(bounds,hyp_count,1);
-    elseif validate( bounds(1), inf, mean, cov, lik, D) && ...
-            validate( bounds(2), inf, mean, cov, lik, D)
+    elseif validate_gp( bounds(1), inf, mean, cov, lik, D) && ...
+            validate_gp( bounds(2), inf, mean, cov, lik, D)
 
         bounds = [unwrap(bounds(1)), unwrap(bounds(2))];
         

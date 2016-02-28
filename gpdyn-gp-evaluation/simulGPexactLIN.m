@@ -46,7 +46,7 @@ fun_name = 'simulGPexactLIN';
 [nn, D] = size(xt);
 
 %input validation
-[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate( hyp, inf, mean, cov, lik, D);
+[ is_valid, hyp, inf, mean, cov, lik, msg ] = validate_gp( hyp, inf, mean, cov, lik, D);
 
 if ~isequal(cov,{@covLINard}) 
     error(strcat([fun_name,': function can only be called with the', ...
