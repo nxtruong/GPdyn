@@ -61,12 +61,12 @@ if nargin ~= 3
   inputMax = max(input); % row vector of maximums
 end
 
-isequal = inputMin==inputMax;
-notequal = ~isequal;
-if sum(isequal) ~= 0
+limequal = inputMin==inputMax;
+notequal = ~limequal;
+if sum(limequal) ~= 0
   warning('Some maximums and minimums are equal. Those inputs will not be transformed.');
-  inputMin0 = inputMin.*notequal - 1*isequal; % where equal set minimums to -1
-  inputMax0 = inputMax.*notequal + 1*isequal; % and maximums to +1 so the data will not be transformed
+  inputMin0 = inputMin.*notequal - 1*limequal; % where equal set minimums to -1
+  inputMax0 = inputMax.*notequal + 1*limequal; % and maximums to +1 so the data will not be transformed
 else
   inputMin0 = inputMin;
   inputMax0 = inputMax;

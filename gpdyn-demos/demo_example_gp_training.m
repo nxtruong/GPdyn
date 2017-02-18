@@ -73,7 +73,7 @@ hyp0_lin = gp_initial(bounds, inf, mean, @covLINard, lik, input, target);
 [hyp, flogtheta, i] = trainGParx(hyp0, inf, mean, cov, lik, input, target);
 
 % Training using Differential Evolution minimization algorithm with default value of iterations:
-[hyp_lin, flogtheta_lin, i] = trainGParx(hyp0_lin, inf, mean, @covLINard, lik, input, target, @minimizeDE);
+[hyp_lin, flogtheta_lin, i] = trainGParx(hyp0_lin, inf, mean, @covLINard, lik, input, target, @minimizeDE, 100);
 
 % Training using Output Error algorithm
 [hyp_oe, flogtheta, i] = trainGPoe(hyp0, inf, mean, cov, lik, input, target, @simulGPmc, 1);

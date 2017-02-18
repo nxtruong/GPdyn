@@ -1,4 +1,4 @@
-function [i] = plotgp(i, t, sys, y, std)
+function [fg] = plotgp(fg, t, sys, y, std)
 % Function plots results of simulation or one-step-ahead
 % prediction. 
 %
@@ -34,7 +34,7 @@ function [i] = plotgp(i, t, sys, y, std)
 sz = size(t);
 if((size(t,1)~=sz(1) | size(sys,1)~=sz(1) |size(y,1)~=sz(1) | size(std,1)~=sz(1))...
         | (size(t,2)~=sz(2) | size(sys,2)~=sz(2) |size(y,2)~=sz(2) | size(std,2)~=sz(2)))
-    warning(['figure ', num2str(i), ': vectors: t, tt, y, std must be same size']);
+    warning(['Figure ', get(fg, 'Name'), ': vectors: t, tt, y, std must be same size']);
     disp(strcat(['t: ', num2str(size(t))])); 
     disp(strcat(['sys: ', num2str(size(sys))])); 
     disp(strcat(['y: ', num2str(size(y))])); 
@@ -52,8 +52,8 @@ yfill = [y(ix_plot)+2*std(ix_plot);flipdim(y(ix_plot)-2*std(ix_plot),1)];
 
 
 % if i==0 use current axis (figure) 
-if (i~=0)
-figure(i);
+if (fg~=0)
+figure(fg);
 end 
 
 % upper part of figure: y 

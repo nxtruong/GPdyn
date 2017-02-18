@@ -30,6 +30,17 @@ hyp0n = gp_initial([-1, 1], inf, mean, cov, lik, nInput, nTarget);
 % train model
 [nHyp, flogtheta, i] = trainGParx(hyp0n, inf, mean, cov, lik, nInput, nTarget);
 
+% validation on validation dataset (regression) 
+nValid = preNorm([xvalid uvalid], inputMin, inputMax);
+[nytest2 nS2test2] = gp(nHyp, inf, mean, cov, lik, nInput, nTarget, nValid);
+ytest2 = postNorm(nytest2, targetMin, targetMax);
+S2test2 = postNormVar(nS2test2, targetMin, targetMax);
+
+%polot
+t = [0:length(uvalid)-1]';
+f2=figure('Name', 'Validation on Validation Data (Regression)');
+plotgp(f2,t,yvalid, ytest2, sqrt(S2test2));
+
 %% Simulation
 
 % prepare input matrix for simulation
